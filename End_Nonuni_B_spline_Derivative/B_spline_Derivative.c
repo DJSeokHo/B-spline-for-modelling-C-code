@@ -12,7 +12,7 @@
 #define Num 100
 #define ORD 3
 #define ENDD 2
-#define BP 8				
+#define BP 7				
 #define VER_ARR VER+ORD+1		//...Number of parameter u
 #define rad -0.5
 #define VER BP
@@ -143,7 +143,7 @@ main()
 	BaseP_x[4] = 2.500; 
 	BaseP_x[5] = 3.100; 
 	BaseP_x[6] = 2.500; 
-	BaseP_x[7] = 3.500; 
+//	BaseP_x[7] = 3.500; 
 
 	BaseP_y[0] = 0.000;
 	BaseP_y[1] = 0.500;
@@ -152,7 +152,7 @@ main()
 	BaseP_y[4] = 0.000;
 	BaseP_y[5] = 1.150;
 	BaseP_y[6] = 1.330;
-	BaseP_y[7] = 1.700; 
+//	BaseP_y[7] = 1.700; 
 
 //init End BP	
 	for(i=0;i<(BP+ENDD);i++)
@@ -183,16 +183,16 @@ main()
 		cacu_BP_dests(BaseP_x[i], BaseP_x[i-1], BaseP_y[i], BaseP_y[i-1], BP_dests);
 	}
 	
-	D0 = Dn = *BP_dests * 0.0;
+//	D0 = Dn = *BP_dests * 0.0;
 	
 	End_BaseP_x[ENDD/2] = 0.000;
-	End_BaseP_y[ENDD/2] = 0.000;//D0;
-	End_BaseP_x[BP+ENDD-2] = 0.000;
+	End_BaseP_y[ENDD/2] = 10.000;//D0;
+	End_BaseP_x[BP+ENDD-2] = -10.000;
 	End_BaseP_y[BP+ENDD-2] = 0.000;//Dn;
 
 	for(i=0;i<(BP+ENDD);i++)
 	{
-		printf("%lf %lf\n", End_BaseP_x[i], End_BaseP_y[i]);
+//		printf("%lf %lf\n", End_BaseP_x[i], End_BaseP_y[i]);
 	}
 
 	for(i=0;i<BP;i++)
@@ -283,7 +283,7 @@ main()
 	}
 	
 	BP_N[0][0] = BP_N[BP+ENDD-1][BP+ENDD-1]= 1.0;
-
+/*
 	for(i=0;i<(BP+ENDD);i++)
 	{
 		for(j=0;j<(BP+ENDD);j++)
@@ -292,7 +292,7 @@ main()
 		}
 		fprintf(test, "\n");
 	}
-
+*/
 
 	ludcmp(BP_N, temp_BP_N, (BP+ENDD), pivot, &plusminusone);  
 
@@ -465,17 +465,38 @@ int FindSpan(int n, int p, double u, double *U)
 
 void cacu_nx(double xu, double yu, double *res)
 {
-	*res=(-yu)/(sqrt(pow(yu,2)+pow(xu,2)));
+	if((-yu)==0 && sqrt(pow(yu,2)+pow(xu,2))==0)
+	{
+		*res=0.0;
+	}
+	else
+	{
+		*res=(-yu)/(sqrt(pow(yu,2)+pow(xu,2)));
+	}
 }
 
 void cacu_ny(double xu, double yu, double *res)
 {
-	*res=(xu)/(sqrt(pow(yu,2)+pow(xu,2)));
+	if((xu)==0 && sqrt(pow(yu,2)+pow(xu,2))==0)
+	{
+		*res=0.0;
+	}
+	else
+	{
+		*res=(xu)/(sqrt(pow(yu,2)+pow(xu,2)));
+	}
 }
 
 void cacu_kslope(double xu, double yu, double xuu, double yuu, double *res)
 {
-	*res=((yuu*xu)-(xuu*yu))/(pow((pow(xu,2)+pow(yu,2)),1.5));
+	if(((yuu*xu)-(xuu*yu))==0 && (pow((pow(xu,2)+pow(yu,2)),1.5))==0)
+	{
+		*res=0.0;
+	}
+	else
+	{
+		*res=((yuu*xu)-(xuu*yu))/(pow((pow(xu,2)+pow(yu,2)),1.5));
+	}
 }
 
 void ang_to_rad(double *ANG, double *res)
