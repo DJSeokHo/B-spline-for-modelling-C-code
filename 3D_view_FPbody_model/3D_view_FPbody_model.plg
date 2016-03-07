@@ -1,0 +1,52 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 3D_view_FPbody_model - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "D:\Users\Woo\AppData\Local\Temp\RSP467F.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/3D_view_FPbody_model.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Users\Woo\Desktop\temp3d(temp)\3D_view_FPbody_model\3D_view_FPbody_modelDoc.cpp"
+]
+Creating command line "cl.exe @D:\Users\Woo\AppData\Local\Temp\RSP467F.tmp" 
+Creating temporary file "D:\Users\Woo\AppData\Local\Temp\RSP4680.tmp" with contents
+[
+opengl32.lib glu32.lib glut32.lib glaux.lib /nologo /stack:0x3b9ac9ff /subsystem:windows /incremental:yes /pdb:"Debug/3D_view_FPbody_model.pdb" /debug /machine:I386 /out:"Debug/3D_view_FPbody_model.exe" /pdbtype:sept 
+".\Debug\3D_view_FPbody_model.obj"
+".\Debug\3D_view_FPbody_modelDoc.obj"
+".\Debug\3D_view_FPbody_modelView.obj"
+".\Debug\ALTBSPLINE_XY.obj"
+".\Debug\ALTBSPLINE_XZ.obj"
+".\Debug\ALTBSPLINE_YZ.obj"
+".\Debug\ALTCP_XY.obj"
+".\Debug\ALTCP_XZ.obj"
+".\Debug\ALTCP_YZ.obj"
+".\Debug\BP.obj"
+".\Debug\BSPLINE_XY.obj"
+".\Debug\BSPLINE_XZ.obj"
+".\Debug\BSPLINE_YZ.obj"
+".\Debug\GET_METHOD.obj"
+".\Debug\m_coordinate.obj"
+".\Debug\MainFrm.obj"
+".\Debug\NumForIndex.obj"
+".\Debug\Operat.obj"
+".\Debug\StdAfx.obj"
+".\Debug\VP.obj"
+".\Debug\3D_view_FPbody_model.res"
+]
+Creating command line "link.exe @D:\Users\Woo\AppData\Local\Temp\RSP4680.tmp"
+<h3>Output Window</h3>
+Compiling...
+3D_view_FPbody_modelDoc.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+3D_view_FPbody_model.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
